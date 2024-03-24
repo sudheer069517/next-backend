@@ -1,5 +1,5 @@
-import axios from "axios";
-import Image from "next/image";
+import client from "@/db"
+import { NextResponse } from "next/server";
 
 export default async function Home() {
   const userDetails = await getUserData();
@@ -19,7 +19,9 @@ export default async function Home() {
 }
 
 async function getUserData(){
-  await new Promise(r => setTimeout(r, 5000))
-  const response = await axios.get('http://localhost:3000/api/user');
-  return response.data;
+  const userData = await client.user.findFirst();
+    return {
+        username : userData?.username,
+        name : "sudheer kavuri"
+    }
 }

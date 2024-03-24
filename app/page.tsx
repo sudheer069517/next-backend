@@ -11,7 +11,7 @@ export default async function Home() {
                     Name: {userDetails?.name}
                 </div>
                 
-                {userDetails?.email}
+                {userDetails?.username}
             </div>
         </div>
     </div>
